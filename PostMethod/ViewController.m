@@ -41,8 +41,19 @@
     [_scrollView addSubview:_btn_signup];
     picker.delegate = self;
     NSLog(@"the sample string is %@",_str);
+    [self showLog:@"happy life"];
 }
-
+- (void) showLog:(NSString *) data
+{
+    NSMutableString *reversedString = [NSMutableString string];
+    NSInteger charIndex = [data length];
+    while (charIndex > 0) {
+        charIndex--;
+        NSRange subStrRange = NSMakeRange(charIndex, 1);
+        [reversedString appendString:[data substringWithRange:subStrRange]];
+    }
+    NSLog(@"%@", reversedString);
+}
 
 - (void)didReceiveMemoryWarning
 {
